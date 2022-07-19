@@ -14,20 +14,26 @@
     <main class="board container">
         <div class="boardingInfo row h-100 pt-3">
             <div class="playerOne col-4 d-flex flex-column justify-content-around align-items-center">
-                <div class="name">Player 1</div>
-                <div class="DiceResult">DiceResult</div>
-                <div class="currentScore">currentScore</div>
+                <div class="name">Player 1 <div class="circle"></div></div>
+                <div class="DiceResult">0</div>
+                <div class="currentScore">
+                    <span>Current</span>
+                    <span class="currentNumber">0</span>
+                </div>
             </div>
             <div class="centralBoard col-4 d-flex flex-column justify-content-around align-items-center">
-                <div class="newGameButton">New Game</div>
-                <div class="dice">imageDice</div>
-                <div class="rollDice">rollDice</div>
-                <div class="hold">hold</div>
+                <div type="button" class="newGameButton"><i class="fa-solid fa-circle-plus fa-fw fa-xl"></i>New Game</div>
+                <img src="/Images/Dice 1.png" alt="Dice 1">
+                <div type="button" class="rollDice"><i class="fa-solid fa-arrows-rotate"></i> rollDice</div>
+                <div type="button" class="hold"><i class="fa-solid fa-angles-down"></i> hold</div>
             </div>
             <div class="playerTwo col-4 d-flex flex-column justify-content-around align-items-center">
-                <div class="name">Player 2</div>
-                <div class="DiceResult">DiceResult</div>
-                <div class="currentScore">currentScore</div>
+                <div class="name">Player 2 <div class="circle"></div></div>
+                <div class="DiceResult">0</div>
+                <div class="currentScore">
+                    <span>Current</span>
+                    <span class="currentNumber">0</span>
+                </div>
             </div>
         </div>
 
