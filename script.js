@@ -17,17 +17,33 @@ document.querySelector('#globalScore-1').textContent = 0;
 document.querySelector('#roundScore-0').textContent = 0;
 document.querySelector('#roundScore-1').textContent = 0;
 
+function diceSound() {
+    let sound = new Audio('Audio/throwDice.mp3');
+    sound.play();
+}
+
+function holdSound() {
+    let sound = new Audio('Audio/holdScore.mp3');
+    sound.play()
+}
+
+
+
+
+
+
 // Création d'un Event click sur le bouton rollDice
 document.querySelector('#rollDice').addEventListener('click', function () {
     
     if (gameIsPlaying) { // Si la partie à bien commencée , donc que la variable gameIsPlaying = true
+
+            
+            
         
-        
+
             document.querySelector('#dice').classList.add('shake'); // ajout d'une animation au dés lancé
             setTimeout("document.querySelector('#dice').classList.remove('shake')",500) // supprime au bout de 0.5s l'animation , afin que l'on puisse l'ajouter au prochain click.
 
-
-            
             // Créer un nombre aléatoire pour le resultat du lancé
             var diceResult = Math.floor(Math.random() * 6) + 1;
             // Affichage de l'élément du DOM contenant les images de dés
@@ -57,6 +73,7 @@ document.querySelector('#rollDice').addEventListener('click', function () {
                 imgArr[4].style.display = "none"
                 imgArr[5].style.display = "none"
             } else if (diceResult == 2) {
+                diceSound();
                 imgArr[0].style.display = "none"
                 imgArr[1].style.display = "block"
                 imgArr[2].style.display = "none"
@@ -64,6 +81,7 @@ document.querySelector('#rollDice').addEventListener('click', function () {
                 imgArr[4].style.display = "none"
                 imgArr[5].style.display = "none"
             } else if (diceResult == 3) {
+                diceSound()                
                 imgArr[0].style.display = "none"
                 imgArr[1].style.display = "none"
                 imgArr[2].style.display = "block"
@@ -71,6 +89,7 @@ document.querySelector('#rollDice').addEventListener('click', function () {
                 imgArr[4].style.display = "none"
                 imgArr[5].style.display = "none"
             } else if (diceResult == 4) {
+                diceSound()                
                 imgArr[0].style.display = "none"
                 imgArr[1].style.display = "none"
                 imgArr[2].style.display = "none"
@@ -78,6 +97,7 @@ document.querySelector('#rollDice').addEventListener('click', function () {
                 imgArr[4].style.display = "none"
                 imgArr[5].style.display = "none"
             } else if (diceResult == 5) {
+                diceSound()                
                 imgArr[0].style.display = "none"
                 imgArr[1].style.display = "none"
                 imgArr[2].style.display = "none"
@@ -85,6 +105,7 @@ document.querySelector('#rollDice').addEventListener('click', function () {
                 imgArr[4].style.display = "block"
                 imgArr[5].style.display = "none"
             } else {
+                diceSound()
                 imgArr[0].style.display = "none"
                 imgArr[1].style.display = "none"
                 imgArr[2].style.display = "none"
@@ -116,7 +137,7 @@ document.querySelector('#hold').addEventListener('click', function () {
         globalScores[currentPlayer] += roundScore;  // On ajoute le score courant au score global du joueur actif
         document.querySelector('#globalScore-' + currentPlayer).textContent = globalScores[currentPlayer]; // Et on l'affiche
         document.querySelector('#roundScore-' + currentPlayer).textContent = 0; // On remet à zéro le score courant du joueur actif
-
+        holdSound()
 
         if (globalScores[currentPlayer] >= 100) { // On vérifie si le joueur actif a gagné en atteighant un score global de 100   
             document.querySelector('#playerName-' + currentPlayer).textContent = " Winner!"; // Si c'est le cas on affiche le message de victoire à la place de son nom
