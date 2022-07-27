@@ -17,16 +17,23 @@ document.querySelector('#globalScore-1').textContent = 0;
 document.querySelector('#roundScore-0').textContent = 0;
 document.querySelector('#roundScore-1').textContent = 0;
 
+// Son du lancé de dés
 function diceSound() {
     let sound = new Audio('Audio/throwDice.mp3');
     sound.play();
 }
 
+// Son pour retenir le score courant
 function holdSound() {
     let sound = new Audio('Audio/holdScore.mp3');
     sound.play()
 }
 
+// Son quand un joueur a gagné
+function victorySound() {
+    let sound = new Audio('Audio/victory.mp3');
+    sound.play();
+}
 
 
 
@@ -139,10 +146,10 @@ document.querySelector('#hold').addEventListener('click', function () {
         document.querySelector('#roundScore-' + currentPlayer).textContent = 0; // On remet à zéro le score courant du joueur actif
         holdSound()
 
-        if (globalScores[currentPlayer] >= 100) { // On vérifie si le joueur actif a gagné en atteighant un score global de 100   
+        if (globalScores[currentPlayer] >= 15) { // On vérifie si le joueur actif a gagné en atteighant un score global de 100   
             document.querySelector('#playerName-' + currentPlayer).textContent = " Winner!"; // Si c'est le cas on affiche le message de victoire à la place de son nom
             document.querySelector('#dice').style.display ='none'; // on fait disparaître le dés
-            
+            victorySound()
         } else { // Si le joueur actif n'a pas gagné on passe au joueur suivant
             nextPlayer();
 
