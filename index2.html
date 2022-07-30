@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ajout de Fontawesome -->
+    <script src="https://kit.fontawesome.com/a564687848.js" crossorigin="anonymous"></script>
+    <!-- Ajout du CDN Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Dice Battle</title>
+</head>
+
+<body class="container-fluid">
+    <div class="row gx-1 h-100">
+        <!-- Player 1 -->
+        <div class="playerOne  col-md-4 d-flex flex-column justify-content-around align-items-center">
+            <div class="name mt-10 " id="playerName-0">
+                Player 1
+
+            </div>
+            <div id="globalScore-0">
+                0
+            </div>
+            <div class="currentBox d-flex flex-column align-items-center mt-5 mt-md-0">
+                <span>Round</span>
+                <span id="roundScore-0">0</span>
+            </div>
+        </div>
+        <!-- centralBoard       -->
+        <div class="centralBoard  col-md-4 d-flex flex-column justify-content-around align-items-center">
+            <div class="title">
+                <img src="/Images/LogoDice.png" class="logo">
+                <h1 class="align-self-center">Dice Battle</h1> 
+            </div>
+            <div type="button" id="newGameButton"><i class="fa-solid fa-circle-plus fa-fw fa-xl"></i>
+                New Game
+            </div>
+            <div class="emptySpace d-flex justify-content-center align-items-center">
+                <div class="dice" id="dice">
+                    <img src="/Images/Dice 1.png" alt="Dice 1" id="dice1">
+                    <img src="/Images/Dice 2.png" alt="Dice 2" id="dice2">
+                    <img src="/Images/Dice 3.png" alt="Dice 3" id="dice3">
+                    <img src="/Images/Dice 4.png" alt="Dice 4" id="dice4">
+                    <img src="/Images/Dice 5.png" alt="Dice 5" id="dice5">
+                    <img src="/Images/Dice 6.png" alt="Dice 6" id="dice6">
+                </div>
+            </div>
+            <div type="button" id="rollDice"><i class="fa-solid fa-arrows-rotate"></i>
+                rollDice
+            </div>
+            <div type="button" id="hold"><i class="fa-solid fa-angles-down"></i>
+                hold
+            </div>
+
+        </div>
+
+        <!-- Player 2 -->
+        <div class="playerTwo col-md-4 d-flex flex-column justify-content-around align-items-center">
+            <div class="name" id="playerName-1">
+                Player 1
+            </div>
+            <div id="globalScore-1">
+                0
+            </div>
+            <div class="currentBox d-flex flex-column align-items-center">
+                <span>Round</span>
+                <span id="roundScore-1">0</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- script JS -->
+    <script src="/script.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

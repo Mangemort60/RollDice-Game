@@ -1,71 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Lato&family=Nunito&family=Poppins&display=swap');
 
-html, body {
+body {
+    height: 100vh;
+    max-width: 1440px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family:'Lato', sans-serif;
-    background-color: #D28782;
-    height: 100vh;
+    background-color: blanchedalmond;
 }
 
-@media screen and (max-width: 768px) {
-    html, body {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family:'Lato', sans-serif;
-        background-color: #D28782;
-        height: 100vh;
-    }
-
-
-
-
-}
-main {
-    width: 100vw;
-    height: auto;
+.row {
     background-color: white;
-    margin: 10px;
+    box-shadow: 1px 1px 20px 1px rgba(185, 185, 185, 0.822);
+    
 }
 
-.active{
-
-    color: crimson;
-
+.active {
+    color: red;
 }
-
-.active{
-
-    color: crimson;
-
+.winner {
+    font-weight: 900;
+    color: green;
 }
-
-.boardingInfo {
-    width: 100%;
-    height: 100%;
-}
+/* PLAYER 1 */
 
 
-/* CENTRAL BOARD */
-#newGameButton, #rollDice, #hold {
+.playerOne .name {
+    font-size: 3rem;
     text-transform: uppercase;
-    font-size: 1.5rem;
-
-}
-
-.rollDice {
-    margin-top: 500px;
+    
 }
 
 
+.currentBox {
+    width: auto;
+    padding: 20px;
+    font-size: 3rem;
+    box-shadow: 1px 1px 20px 1px rgba(155, 155, 155, 0.548);
+    border-radius: 4px;
+    background-color: blanchedalmond;
+}
+
+#globalScore-0 {
+    font-size: 4rem;
+    color: rgba(87, 87, 87, 0.616);
+    
+}
+
+
+/* centralBoard */
+
+.centralBoard {
+    font-size: 2rem;
+}
 
 img {
     width: 200px;
     height: 200px;
-    box-shadow: 1px 1px 15px 1px rgba(128, 128, 128, 0.178);
 }
+
+.title {
+    font-size: 3rem;
+    font-style: oblique;
+    display: flex;
+}
+
+
+/* DICE */
 
 .emptySpace {
     height: 200px;
@@ -92,41 +94,83 @@ img {
     100% { transform: translate(1px, -2px) rotate(-1deg); }
     
 }
-/* PLAYERS */
-.name {
+
+
+
+
+
+/* PLAYER 2 */
+
+
+.playerTwo .name {
     font-size: 3rem;
     text-transform: uppercase;
-    margin-top: 250px;
-}
-#globalScore-0, #globalScore-1{
-    font-size: 3rem;
-    color: rgba(78, 23, 23, 0.589);
-    margin-bottom: 500px;
     
 }
 
-.circle {
-    width: 20px;
-    height: 20px;
-    background-color: #D28782;
-    float: right;
-    border-radius: 50%;
-    margin: 30 0 0 20;
-}
-.currentBox {
-    background-color: #D28782;
-    width: 200px;
-    height: 100px;
-    border-radius: 4px;
-    font-size: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 100px;
-}
-
-#roundScore-1, #roundScore-0 {
+#globalScore-1 {
+    font-size: 4rem;
+    color: rgba(87, 87, 87, 0.616);
     
+}
 
-} 
+
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 768px){
+    .playerOne .name, .playerTwo .name {
+        font-size: 1rem;
+        text-transform: uppercase;
+
+        
+    }
+
+    .currentBox {
+
+        font-size: 0.5rem;
+        font-size: 1rem;
+        box-shadow: 1px 1px 20px 1px rgba(155, 155, 155, 0.548);
+        border-radius: 4px;
+        background-color: blanchedalmond;
+    }   
+
+    #globalScore-1, #globalScore-0 {
+        font-size: 2rem;
+        color: rgba(87, 87, 87, 0.616);
+
+        
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    #newGameButton {
+        font-size: 1rem;
+        margin-top: 1rem;
+
+    }
+
+    .dice img {
+        width: 100px;
+        height: 100px;
+    }
+
+    #rollDice {
+        font-size: 1rem;
+    }
+    
+    #hold {
+        font-size: 1rem;
+    }
+
+}
+
+
+

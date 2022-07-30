@@ -35,6 +35,12 @@ function victorySound() {
     sound.play();
 }
 
+// Son quand un joueur sort le 1
+function wrong() {
+    let sound = new Audio('Audio/wrong.mp3');
+    sound.play();
+}
+
 
 
 
@@ -57,7 +63,6 @@ document.querySelector('#rollDice').addEventListener('click', function () {
             document.querySelector('#dice').style.display = "block"
 
 
-            
 
             // Récupère les images de dés
             var img1 = document.querySelector('#dice1');
@@ -73,6 +78,7 @@ document.querySelector('#rollDice').addEventListener('click', function () {
 
             // affiche la bonne face du dés selon le resultat du lancé
             if (diceResult == 1) {
+                wrong()
                 imgArr[0].style.display = "block"
                 imgArr[1].style.display = "none"
                 imgArr[2].style.display = "none"
@@ -150,6 +156,8 @@ document.querySelector('#hold').addEventListener('click', function () {
             document.querySelector('#playerName-' + currentPlayer).textContent = " Winner!"; // Si c'est le cas on affiche le message de victoire à la place de son nom
             document.querySelector('#dice').style.display ='none'; // on fait disparaître le dés
             victorySound()
+            document.querySelector('#playerName-'+currentPlayer).classList.add('winner');
+            document.querySelector('#playerName-'+currentPlayer).classList.remove('active');
         } else { // Si le joueur actif n'a pas gagné on passe au joueur suivant
             nextPlayer();
 
@@ -170,12 +178,8 @@ function nextPlayer() { // Fonction pour passer au tour du joueur suivant
     document.getElementById('roundScore-0').textContent = 0;
     document.getElementById('roundScore-1').textContent = 0;
 
-    // Utilisation de la fonction toggle pour mettre en surbrillance le joueur actif 
-    document.getElementById('playerName-0').classList.toggle('active')
-    document.getElementById('playerName-1').classList.toggle('active')
-
-
-
+    document.querySelector('#playerName-0').classList.toggle('active');
+    document.querySelector('#playerName-1').classList.toggle('active');
 
 }
 
@@ -202,9 +206,16 @@ function init() {
     document.getElementById('playerName-0').textContent = 'Player 1';
     document.getElementById('playerName-1').textContent = 'Player 2';
 
-    // Mise en surbrillance du joueur 1 qui est le joueur actif par défaut
-    document.getElementById('playerName-0').classList.add('active')
-    document.getElementById('playerName-1').classList.remove('active')
+    document.querySelector('#playerName-0').classList.remove('winner');
+    document.querySelector('#playerName-1').classList.remove('winner');
+    document.querySelector('#playerName-0').classList.remove('active');
+    document.querySelector('#playerName-1').classList.remove('active');
+    document.querySelector('#playerName-0').classList.add('active'); 
+
+
+    // // // Mise en surbrillance du joueur 1 qui est le joueur actif par défaut
+    // document.getElementById('playerName-0').classList.add('active')
+    // document.getElementById('playerName-1').classList.remove('active')
 
 
     
