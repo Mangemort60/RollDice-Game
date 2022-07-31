@@ -152,7 +152,7 @@ document.querySelector('#hold').addEventListener('click', function () {
         document.querySelector('#roundScore-' + currentPlayer).textContent = 0; // On remet à zéro le score courant du joueur actif
         holdSound()
 
-        if (globalScores[currentPlayer] >= 15) { // On vérifie si le joueur actif a gagné en atteighant un score global de 100   
+        if (globalScores[currentPlayer] >= 100) { // On vérifie si le joueur actif a gagné en atteighant un score global de 100   
             document.querySelector('#playerName-' + currentPlayer).textContent = " Winner!"; // Si c'est le cas on affiche le message de victoire à la place de son nom
             document.querySelector('#dice').style.display ='none'; // on fait disparaître le dés
             victorySound()
@@ -202,21 +202,60 @@ function init() {
     document.getElementById('roundScore-0').textContent = 0;
     document.getElementById('roundScore-1').textContent = 0;
 
-    // affiche les noms des joueurs
-    document.getElementById('playerName-0').textContent = 'Player 1';
-    document.getElementById('playerName-1').textContent = 'Player 2';
+    // fonction qui recupère le nom des joueur et leur presente les règles du jeu
+
+getNamePlayers()
+    function getNamePlayers() {
+
+
+        var playerNameOne = prompt('Veuillez entrer le nom du joueur 1');
+        var playerNameTwo = prompt('Veuillez entrer le nom du joueur 2');
+
+        if(playerNameOne || playerNameTwo ){
+
+            document.getElementById('playerName-0').textContent = playerNameOne;
+            document.getElementById('playerName-1').textContent = playerNameTwo;
+            alert(`
+            Bonjour ${playerNameOne} et ${playerNameTwo}, et bienvenu dans Dice Battle !
+            voici les règles du jeu :
+
+            Le jeu comprend 2 joueurs sur un seul et même écran.
+            Chaque joueur possède un score temporaire (ROUND),
+            et un score global (GLOBAL).
+            À chaque tour, le joueur a son ROUND initialisé à 0, 
+            et peut lancer un dé autant de fois qu'il le souhaite.
+            Le résultat d’un lancer est ajouté au ROUND.
+            Lors de son tour, le joueur peut décider à tout moment de:
+            - Cliquer sur l’option “Hold”, qui permet d’envoyer 
+            les points du ROUND vers le GLOBAL. 
+            Ce sera alors le tour de l’autre joueur.
+            - Lancer le dé. S’il obtient un 1, son score ROUND est perdu, 
+            et c’est la fin de son tour.
+            Le premier joueur qui atteint les 100 points sur global 
+            gagne le jeu.
+            BONNE CHANCE !!`)
+
+            
+        }
+        else if (playerNameOne == '' || playerNameTwo == '') {
+
+            alert('Vous devez entrer le nom des joueurs')
+            return getNamePlayers()
+            
+        }
+        else {
+            alert('Annulation')
+
+        }
+    
+    }
+
 
     document.querySelector('#playerName-0').classList.remove('winner');
     document.querySelector('#playerName-1').classList.remove('winner');
     document.querySelector('#playerName-0').classList.remove('active');
     document.querySelector('#playerName-1').classList.remove('active');
     document.querySelector('#playerName-0').classList.add('active'); 
-
-
-    // // // Mise en surbrillance du joueur 1 qui est le joueur actif par défaut
-    // document.getElementById('playerName-0').classList.add('active')
-    // document.getElementById('playerName-1').classList.remove('active')
-
 
     
 }
